@@ -1,0 +1,12 @@
+{
+  "project": "iwaSync3",
+  "project_version": "unknown",
+  "project_commit": "unknown",
+  "vrchat_version": "unknown",
+  "captured_at": "2026-08-18",
+  "scenario": "PlayerError followed by an unprefixed continuation line that must not be parsed",
+  "source": "public_issue",
+  "redactions": [
+    "video_id"
+  ]
+}

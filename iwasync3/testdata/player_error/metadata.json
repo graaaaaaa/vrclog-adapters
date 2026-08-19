@@ -1,0 +1,10 @@
+{
+  "project": "iwaSync3",
+  "project_version": "unknown",
+  "project_commit": "unknown",
+  "vrchat_version": "unknown",
+  "captured_at": "2026-08-18",
+  "scenario": "PlayerError observed during playback",
+  "source": "public_issue",
+  "redactions": []
+}

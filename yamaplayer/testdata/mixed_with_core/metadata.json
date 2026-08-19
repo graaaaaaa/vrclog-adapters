@@ -1,0 +1,12 @@
+{
+  "project": "YamaPlayer",
+  "project_version": "unknown",
+  "project_commit": "unknown",
+  "vrchat_version": "unknown",
+  "captured_at": "2026-08-18",
+  "scenario": "YamaPlayer playback attempt interleaved with generic VRChat core video events",
+  "source": "public_issue",
+  "redactions": [
+    "video_id"
+  ]
+}
