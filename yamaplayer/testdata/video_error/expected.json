@@ -1,12 +1,12 @@
 [
   {
-    "id": "91cbe9662ee0b830b5a3a248441c8251ee275d6ef71bb67b8755712a7fb3ac01",
-    "time": "2026-08-18T12:00:00+09:00",
+    "id": "_",
+    "time": "0001-01-01T00:00:00Z",
     "adapter_id": "community.yamaplayer",
     "rule_id": "video_error",
     "record": {
-      "id": "56f5614ca5e30849b06140629eb09575795b54faf559491c81011eb4e63f9238",
-      "source_id": "8f5cc4f6b0857fedca922c52f3710a6cd0406b41dd867fcb75b0268aaf5bea51",
+      "id": "_",
+      "source_id": "_",
       "offset": 0,
       "line": 1
     },

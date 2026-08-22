@@ -196,9 +196,32 @@ func TestConcurrentDecode(t *testing.T) {
 	wg.Wait()
 }
 
+// normalizeGoldenObservation zeroes/replaces fields that are inherently
+// machine-dependent so golden fixtures are portable across developer
+// machines and CI runners: Observation.ID, Record.ID, and Record.SourceID
+// are SHA-256 hashes of the fixture file's absolute path, and Time
+// reflects vrclog-go's time.Local-based parsing of a timezone-naive
+// VRChat timestamp (a different absolute instant on every machine). This
+// does not touch vrclog-go's parsing/hashing behavior -- only what this
+// repo's golden comparison treats as significant. Working with the typed
+// Observation/RecordRef struct (rather than rewriting the JSON tree)
+// means a future field that happens to be named "id" elsewhere in an
+// Event payload can never be clobbered by this normalization.
+func normalizeGoldenObservation(obs vrclog.Observation) vrclog.Observation {
+	obs.ID = "_"
+	obs.Time = time.Time{}
+	obs.Record.ID = "_"
+	obs.Record.SourceID = "_"
+	return obs
+}
+
 // TestFixtureGolden verifies the adapter's output against golden files
 // generated from real VRChat log fixtures using vrclog.ReadFile +
-// vrclog.EncodeObservationJSON. Run with -update to regenerate.
+// vrclog.EncodeObservationJSON. Machine-dependent fields (see
+// normalizeGoldenObservation) are normalized before comparison, so no
+// special TZ handling is needed. Run with -update to regenerate:
+//
+//	go test -count=1 ./iwasync3/ -update
 func TestFixtureGolden(t *testing.T) {
 	scenarios := []string{"player_error", "player_error_with_continuation"}
 
@@ -227,7 +250,7 @@ func TestFixtureGolden(t *testing.T) {
 
 			var encoded []json.RawMessage
 			for _, obs := range observations {
-				b, err := vrclog.EncodeObservationJSON(obs)
+				b, err := vrclog.EncodeObservationJSON(normalizeGoldenObservation(obs))
 				if err != nil {
 					t.Fatalf("EncodeObservationJSON() error = %v", err)
 				}
