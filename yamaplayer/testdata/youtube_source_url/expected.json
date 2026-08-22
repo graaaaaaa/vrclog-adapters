@@ -1,12 +1,12 @@
 [
   {
-    "id": "7f0dd44b200616c2c3808179de6d684d5323994aa69c4075a0b95d4a09b34a2b",
+    "id": "04f0b139403cf2380df4c57f4825c3f6103606b250c311f339645106b76f2217",
     "time": "2026-08-18T12:00:00+09:00",
     "adapter_id": "community.yamaplayer",
     "rule_id": "youtube_resolve_url",
     "record": {
-      "id": "67c55cb061958a7f80cca3afb235f5acc860ee1d260d4435f90b13da77455f30",
-      "source_id": "f3d5ffbd35b804c1808c658d6eb1b08dd6ca8e75c3ffdd06f7cfbddc2fd66f3d",
+      "id": "5027137e6631df89261853b62de493d1c42fcd78cbbb460dd0a046bd3598f9d1",
+      "source_id": "d31f78be00bcc47466e30598f9c9c845c6b2582db647ec71660bd5bd835fd697",
       "offset": 0,
       "line": 1
     },
@@ -18,7 +18,8 @@
         "role": "source"
       },
       "target": {
-        "component": "yamaplayer"
+        "component": "yamaplayer",
+        "backend": "unknown"
       }
     }
   }
